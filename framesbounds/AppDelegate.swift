@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,6 +17,56 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        window = UIWindow.init(frame: UIScreen.main.bounds)
+        window?.backgroundColor = UIColor.white
+        
+        let vc = UIViewController()
+       let view1 = UIView.init(frame: CGRect.init(x: 10, y: 20, width: vc.view.frame.size.width - 40, height: 250))
+        view1.backgroundColor = UIColor.blue
+        //vc.view.addSubview(view1)
+        //let view = UIView()
+        let label = UILabel.init(frame: CGRect.init(x: 50, y: 50, width: vc.view.frame.size.width - 300, height: 30))
+        label.text = "Hello World"
+        
+       /* let button = UIButton.init(frame: CGRect.init(x: 50, y: 100, width: vc.view.frame.size.width - 150, height: 30))
+        button.titleLabel?.text = "Rotate"
+        button.backgroundColor = UIColor.red */
+        //view1.addSubview(button)
+        
+        
+        
+        view1.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi/4)
+       
+        let viewframex = view1.frame.minX
+        print("View Frame x: \(viewframex)")
+        let viewframey = view1.frame.minY
+        print("View Frame y : \(viewframey)")
+        
+        let viewframeh = view1.frame.height
+        print("View Frame Height: \(viewframeh)")
+        let viewframew = view1.frame.width
+        print("View Frame Width: \(viewframew)")
+        
+        //view1.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi/2)
+        //label.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi/2)
+        //let view1 = UIView.init(frame: CGRect.init(x: 10, y: 20, width: vc.view.frame.size.width - 40, height: 250))
+
+       let viewboundx = view1.bounds.minX
+        print("View Bound x: \(viewboundx)")
+        let viewboundy = view1.bounds.minY
+        print("View Bound y: \(viewboundy)")
+        
+        let viewboundh = view1.bounds.height
+        print("View Bound Height: \(viewboundh)")
+        let viewboundw = view1.bounds.width
+        print("View Bound Width: \(viewboundw)")
+        vc.view.addSubview(view1)
+        view1.addSubview(label)
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
+        
+        
+        
         return true
     }
 
